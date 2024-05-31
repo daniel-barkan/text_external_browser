@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open in External Browser</title>
+    <script>
+        function openInExternalBrowser() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var externalUrl = "http://www.yourwebapp.com";
+
+            if (userAgent.includes("FBAN") || userAgent.includes("FBAV")) {
+                // Try to open in Chrome
+                window.location.href = "googlechrome://navigate?url=" + externalUrl;
+            } else {
+                // Open in default browser
+                window.open(externalUrl, "_blank");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="openInExternalBrowser()">פתח בדפדפן חיצוני</button>
+</body>
+</html>
